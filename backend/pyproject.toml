@@ -13,6 +13,11 @@ uvicorn = "^0.23.2"
 
 [tool.poetry.group.d0gied-dev.dependencies]
 
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.2"
+httpx = "^0.25.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
