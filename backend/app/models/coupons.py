@@ -1,5 +1,6 @@
 import databases
 import sqlalchemy
+from datetime import datetime
 from pydantic import BaseModel
 
 class Coupon(Base):
@@ -7,7 +8,7 @@ class Coupon(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
-    time = Column(DateTime, default=datetime.now)
+    time = Column(DateTime, default=datetime.now())
     window = Column(String, nullable=False)
     active = Column(Boolean, default=True)
 
