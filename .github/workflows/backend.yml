@@ -27,7 +27,7 @@ jobs:
       working-directory: ./backend
       run: |
         python -m pip install --upgrade pip
-        pip install pytest poetry
+        pip install poetry
         poetry config virtualenvs.create false && poetry install --no-dev --no-interaction --no-ansi
     - name: Format with black
       run: |
@@ -48,6 +48,7 @@ jobs:
         isort --check --diff ./backend
     - name: Test with pytest
       run: |
+        pip install pytest httpx
         pytest ./backend
     - uses: actions/checkout@v2.4.0
     - name: Build the images and start the containers
