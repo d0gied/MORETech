@@ -17,32 +17,19 @@ class Coupon(Base):
     window = Column(String, nullable=False)
     active = Column(Boolean, default=True)
 
+    @classmethod
+    def delete(cls, db: Session, department_id: int, coupon: str, window: Optional[str] = None):
+        query = db.query(cls).filter_by(department_id=department_id, name=coupon)
+        
+        if window:
+            query = query.filter_by(window=window)
+            
+        query.delete()
+        db.commit()
+    
+
 # Создать базу данных в памяти
 engine = create_engine('sqlite:///:memory:', echo=True)
 
 # Создать таблицы на основе моделей
 Base.metadata.create_all(engine)
-
-app = FastAPI()
-
-@app.get("/coupons/")
-def get_coupons(department_id: int, amount: int = 10, page: int = 0, db: SessionLocal = Depends(SessionLocal)):
-    offset = page * amount
-    coupons = (
-        db.query(Coupon.name, Coupon.time)
-        .filter(Coupon.department_id == department_id)
-        .limit(amount)
-        .offset(offset)
-        .all()
-    )
-    
-    total_coupons = db.query(func.count(Coupon.id)).filter(Coupon.department_id == department_id).scalar()
-    total_pages = (total_coupons + amount - 1) // amount
-
-    return {
-        "department_id": department_id,
-        "page": page,
-        "total_pages": total_pages,
-        "amount": len(coupons),
-        "coupons": [{"name": name, "time": time} for name, time in coupons]
-    }
