@@ -23,6 +23,8 @@ engine = create_engine('sqlite:///:memory:', echo=True)
 # Создать таблицы на основе моделей
 Base.metadata.create_all(engine)
 
+app = FastAPI()
+
 @app.get("/coupons/")
 def get_coupons(department_id: int, amount: int = 10, page: int = 0, db: SessionLocal = Depends(SessionLocal)):
     offset = page * amount
