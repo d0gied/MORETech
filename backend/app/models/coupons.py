@@ -1,5 +1,5 @@
 import databases
-import sqlalchemy
+from sqlalchemy import *
 from datetime import datetime
 from pydantic import BaseModel
 
