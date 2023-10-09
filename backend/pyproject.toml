@@ -9,9 +9,8 @@ readme = "README.md"
 python = "^3.11"
 fastapi = "^0.103.2"
 uvicorn = "^0.23.2"
+databases = {extras = ["asyncpg"], version = "^0.8.0"}
 
-
-[tool.poetry.group.d0gied-dev.dependencies]
 
 [build-system]
 requires = ["poetry-core"]
