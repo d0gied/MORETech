@@ -1,11 +1,10 @@
 from functools import lru_cache
 from typing import Generator
-
+from config import get_settings
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-DATABASE_URL  = "postgresql+psycopg2://postgres:postgres@pgdb/moretech"
-engine = create_engine(DATABASE_URL, pool_pre_ping=True)
+engine = create_engine(get_settings().database_url, pool_pre_ping=True)
 
 @lru_cache
 def create_session() -> scoped_session:
