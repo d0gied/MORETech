@@ -6,3 +6,9 @@ services:
       context: ./backend
     ports:
       - "8000:8000"
+  client:
+   container_name: frontend
+   build: 
+    context: ./client
+   ports:
+     - "8001:8001"
