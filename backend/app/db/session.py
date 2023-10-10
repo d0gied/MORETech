@@ -4,9 +4,8 @@ from typing import Generator
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-from orders_api.config import get_settings
-
-engine = create_engine(get_settings().database_url, pool_pre_ping=True)
+DATABASE_URL  = "postgresql+psycopg2://postgres:postgres@pgdb/moretech"
+engine = create_engine(DATABASE_URL, pool_pre_ping=True)
 
 @lru_cache
 def create_session() -> scoped_session:
