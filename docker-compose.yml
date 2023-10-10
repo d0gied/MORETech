@@ -7,7 +7,7 @@ services:
     ports:
       - "${APIPORT:-8000}:8000"
     depends_on:
-          - pgdb
+      - pgdb
     networks:
       - backend
       - frontend
@@ -42,8 +42,8 @@ services:
       - pgdb
     networks:
       - backend
-   
- client:
+
+  client:
     container_name: frontend
     build:
       context: ./client
@@ -51,6 +51,8 @@ services:
       - "${PORT:-8001}:8001"
     networks:
       - frontend
+    depends_on:
+      - api
 
 volumes:
   postgres-data:
