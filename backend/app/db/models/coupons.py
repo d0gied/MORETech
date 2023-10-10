@@ -13,4 +13,8 @@ class Coupon(Base):
     time = Column(DateTime, default=datetime.now())
     window = Column(String, nullable=True)
     active = Column(Boolean, default=True)
-    depatment_id = Column(Integer, nullable=False)
+    department_id = Column(Integer, nullable=False)
+    
+    def as_dict(self):
+        return {"id" : self.id, "coupon" : self.coupon, "time" : self.time,
+                "window": self.window, "active" : self.active, "department_id" : self.department_id}
