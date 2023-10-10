@@ -1,0 +1,24 @@
+
+.map-container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    height: 100vh;
+    position: fixed;
+}
+
+.department-list-wrapper {
+    position: fixed;
+    z-index: 5;
+    display: flex;
+    width: 20%;
+    background-color: #fafafa;
+    height: 100%;
+    padding: 32px;
+}
+
+
+@media ( max-width: 600px ) {
+
+
+}
