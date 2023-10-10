@@ -42,7 +42,29 @@
             height: 50%;
         }
     }
+}
 
+.mobile-drawer {
+    z-index: 6;
+
+    .drawer-opener {
+        border-top-left-radius: 32px;
+        border-top-right-radius: 32px;
+        grid-row: 3/4;
+        background-color: #ffffff;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        bottom: 0px;
+        height: 32px;
+        .puller {
+            width: 100px;
+            height: 7px;
+            border-radius: 3px;
+            background-color: #888888;
+        }
+    }
 }
 
 @media (max-width: 600px) {
