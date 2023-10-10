@@ -10,17 +10,11 @@ router = APIRouter(prefix="/queue", tags=["queue"])
     "/department/{department_id}", responses={404: {"description": "Not found"}}
 )
 async def get_queue(department_id: int, amount: int = 10, page: int = 0):
-    total_amount = len(coupons)
-    coupons = coupons[page * amount : page * amount + amount]
+    coupons = []
     if not coupons:
         return HTTPException(status_code=404, detail="Wrong parameters")
 
-    return {
-        "department": department_id,
-        "amount": len(coupons),
-        "page": page,
-        "total_pages": total_amount // amount + (total_amount % amount > 0),  # ceil
-    }
+    return {}
 
 
 @router.put("/department/{department_id}")
