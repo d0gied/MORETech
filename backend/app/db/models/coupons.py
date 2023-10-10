@@ -14,5 +14,3 @@ class Coupon(Base):
     window = Column(String, nullable=True)
     active = Column(Boolean, default=True)
     depatment_id = Column(Integer, nullable=False)
-
-
