@@ -3,27 +3,10 @@ from fastapi import APIRouter, Depends, HTTPException
 
 router = APIRouter(prefix="/queue", tags=["queue"])
 
-fake_db = {
-    "departments": {
-        0: [
-            {
-                "id": 2,
-                "name": "К001",
-                "time": datetime.now(),
-                "window": "12",
-                "active": True,
-            },
-            {"id": 12, "name": "И001", "time": datetime.now(), "active": True},
-        ],
-    }
-}
-
-
 @router.get(
     "/department/{department_id}", responses={404: {"description": "Not found"}}
 )
 async def get_queue(department_id: int, amount: int = 10, page: int = 0):
-    coupons = fake_db["departments"].get(department_id, [])
     total_amount = len(coupons)
     coupons = coupons[page * amount : page * amount + amount]
     if not coupons:

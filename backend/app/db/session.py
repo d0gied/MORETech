@@ -1,6 +1,6 @@
 from functools import lru_cache
 from typing import Generator
-from config import get_settings
+from ..config import get_settings
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
