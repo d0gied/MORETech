@@ -1,6 +1,4 @@
-import React from "react"
-
-export default function sidebar() {
+export default function SideBar() {
     return (
         <div className="department-list-wrapper">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus non

@@ -1,32 +1,27 @@
-import { BottomToolbar, Button, Page } from "react-onsenui"
+import { Page } from "react-onsenui"
 import { YMaps, Map } from "@pbe/react-yandex-maps"
 import "onsenui/css/onsenui.css"
 import "onsenui/css/onsen-css-components.css"
+import SideBar from "./components/sidebar"
+import Topbar from "./components/topbar"
 
-function App() {
+export default function App() {
     return (
-        <div className="app">
-            <Page>
-                <YMaps>
-                    <div className="department-list-wrapper">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Minus non quo aspernatur culpa doloribus temporibus
-                        quae, architecto quidem provident delectus. Sit quas
-                        dicta nesciunt sunt hic nobis repudiandae dolorum.
-                        Doloribus.
-                    </div>
-                    <Map
-                        defaultState={{
-                            center: [55.75, 37.57],
-                            zoom: 9
-                        }}
-                        className="map-container"
-                    />
+        <Page className="app">
+            <YMaps>
+              <div className="ui-wrapper">
+                <Topbar />
+                <SideBar/>
+              </div>
 
-                </YMaps>
-            </Page>
-        </div>
+                <Map
+                    defaultState={{
+                        center: [55.75, 37.57],
+                        zoom: 9
+                    }}
+                    className="map-container"
+                />
+            </YMaps>
+        </Page>
     )
 }
-
-export default App
