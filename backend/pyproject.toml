@@ -15,6 +15,10 @@ psycopg2-binary = "^2.9.9"
 pydantic = {extras = ["dotenv", "email"], version = "^2.4.2"}
 
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.2"
+httpx = "^0.25.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
