@@ -10,11 +10,13 @@ services:
           - pgdb
     networks:
       - backend
+    environment:
+      - DATABASE_URL=postgresql+psycopg2://postgres:postgres@pgdb/moretech
 
   pgdb:
     image: postgres
     environment:
-      - POSTGRES_DB=postgres
+      - POSTGRES_DB=moretech
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     container_name: pgdb
