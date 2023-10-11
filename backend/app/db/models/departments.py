@@ -2,6 +2,7 @@ from datetime import datetime
 
 from sqlalchemy import Column, Integer, String, DateTime, Boolean
 from .base import get_base
+from services import Service
 
 Base = get_base()
 
@@ -21,5 +22,5 @@ class Department(Base):
             "adress": self.address,
             "metro": self.metro,
             "city": self.city,
-            "services": list(self.services)
+            "services": list(map(Service.as_dict, self.services))
         }
