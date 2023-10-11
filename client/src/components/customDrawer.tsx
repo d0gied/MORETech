@@ -29,7 +29,7 @@ export default function CustomDrawer(props: PropsWithChildren) {
         if (startY == 0) setStartY(event.clientY)
         else if (pullable) {
             //console.log(event.clientY, startY)
-            const y = event.clientY - startY + 5
+            const y = event.clientY - startY + 32
             setDrawerPositionStyles({
                 transition: "none",
                 transform: "translateY("+(y)+"px)"
