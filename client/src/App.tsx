@@ -2,14 +2,16 @@ import { YMaps, Map } from "@pbe/react-yandex-maps"
 import SideBar from "./components/sidebar"
 import Topbar from "./components/topbar"
 import MobileDrawer from "./components/mobileDrawer"
+import CustomDrawer from "./components/CustomDrawer"
 
 export default function App() {
     return (
         <YMaps>
             <div className="ui-wrapper">
                 <Topbar />
-                <MobileDrawer />
+                {/* <MobileDrawer /> */}
                 {/* <SideBar/> */}
+                <CustomDrawer/>
             </div>
 
             <Map
