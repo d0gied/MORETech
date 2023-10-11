@@ -6,8 +6,9 @@ from services import Service
 
 Base = get_base()
 
+
 class Department(Base):
-    __tablename__ = 'departments'
+    __tablename__ = "departments"
 
     id = Column(Integer, primary_key=True)
     address = Column(String, nullable=False)
@@ -18,9 +19,9 @@ class Department(Base):
 
     def as_dict(self):
         return {
-            "id" : self.id,
+            "id": self.id,
             "adress": self.address,
             "metro": self.metro,
             "city": self.city,
-            "services": list(map(Service.as_dict, self.services))
+            "services": list(map(Service.as_dict, self.services)),
         }
