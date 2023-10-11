@@ -1,9 +1,9 @@
 from datetime import datetime
 
 from sqlalchemy import Column, Integer, String, DateTime, Boolean
-from sqlalchemy.orm import declarative_base
+from .base import get_base
 
-Base = declarative_base()
+Base = get_base()
 
 class Coupon(Base):
     __tablename__ = 'coupons'

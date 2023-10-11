@@ -2,7 +2,7 @@ from fastapi import Depends, FastAPI
 # from .internal import admin
 from .routers import queue
 
-from .db.models.coupons import Base 
+from .db.models import Base 
 from .db.session import get_engine 
 
 
