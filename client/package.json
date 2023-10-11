@@ -26,8 +26,7 @@
     "react-router": "^6.16.0",
     "react-router-dom": "^6.16.0",
     "sass": "^1.69.0",
-    "styled-components": "^5.3.11",
-    "types": "file:../../../../../../react-yandex-maps"
+    "styled-components": "^5.3.11"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
