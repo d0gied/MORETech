@@ -10,10 +10,13 @@ class Department(Base):
 
     id = Column(Integer, primary_key=True)
     address = Column(String, nullable=False)
-    near_metro = Column(String, nullable=False)
-    services = ...
-    clients = ...
-    
+    near_metro = Column(String, nullable=True)
+    city = Column(String, nullable=False)
+
     def as_dict(self):
-        return {"id" : self.id, "coupon" : self.coupon, "time" : self.time,
-                "window": self.window, "active" : self.active, "department_id" : self.department_id}
+        return {
+            "id" : self.id,
+            "adress": self.address,
+            "near_metro": self.near_metro,
+            "city": self.city
+        }
