@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from ..db.session import get_session
 from ..db.models.services import Service
 
-router = APIRouter(prefix="/service", tags=["service"])
+router = APIRouter(prefix="/services", tags=["service"])
 
 @router.put("/")
 async def put_service(

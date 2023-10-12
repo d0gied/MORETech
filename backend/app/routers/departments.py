@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from ..db.session import get_session
 from ..db.models.departments import Department
 
-router = APIRouter(prefix="/department", tags=["department"])
+router = APIRouter(prefix="/departments", tags=["department"])
 
 @router.put("/")
 async def put_department(
