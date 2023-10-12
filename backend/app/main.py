@@ -16,7 +16,6 @@ app.include_router(queue.router)
 async def root():
     return {"message": "Hello World!"}
 
-
 @app.on_event("startup")
 async def start():
     Base.metadata.create_all(get_engine())
