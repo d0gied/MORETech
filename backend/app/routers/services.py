@@ -21,14 +21,14 @@ async def put_service(
     db_session.commit()
 
 @router.get("/{service_id}", responses={404: {"description": "Not found"}})
-async def get_coupon(service_id: int, db_session: Session = Depends(get_session)):
+async def get_service(service_id: int, db_session: Session = Depends(get_session)):
     service: Service = db_session.query(Service).get(service_id)  # returns Service or None
     if service is None:
         return HTTPException(404, "Service not found")
     return service.as_dict()
 
 router.patch("/{service_id}")  # update data in coupon
-async def patch_coupon_in_queue(
+async def patch_service(
     service_id: int, 
     name : str = None,
     client_type: str = None, 

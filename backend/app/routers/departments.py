@@ -6,7 +6,7 @@ from ..db.models.departments import Department
 router = APIRouter(prefix="/department", tags=["department"])
 
 @router.put("/")
-async def put_service(
+async def put_department(
     name: str=None,
     address: str = None, 
     metro: str = None, 
@@ -23,14 +23,14 @@ async def put_service(
     db_session.commit()
 
 @router.get("/{department_id}", responses={404: {"description": "Not found"}})
-async def get_coupon(department_id: int, db_session: Session = Depends(get_session)):
+async def get_department(department_id: int, db_session: Session = Depends(get_session)):
     department: department = db_session.query(department).get(department_id)  # returns department or None
     if department is None:
         return HTTPException(404, "department not found")
     return department.as_dict()
 
 router.patch("/{department_id}")  # update data in coupon
-async def patch_coupon_in_queue(
+async def path_department(
     department_id: int, 
     name : str = None,
     address: str = None, 
