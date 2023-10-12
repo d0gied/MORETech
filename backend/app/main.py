@@ -19,4 +19,4 @@ async def root():
 
 @app.on_event("startup")
 async def start():
-    Base.metadata.create_all(get_engine())б
+    Base.metadata.create_all(get_engine())
