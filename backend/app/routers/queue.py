@@ -66,7 +66,14 @@ async def get_coupon(coupon_id: int, db_session: Session = Depends(get_session))
 
 @router.patch("/coupon/{coupon_id}")  # update data in coupon
 async def put_in_queue(
-    coupon_id: int, window: str = None, time: datetime = None, active: bool = None
+    coupon_id: int, window: str = None, active: bool = None, db_session: Session = Depends(get_session)
 ):
-    ...
-    return {"id": 12, "name": "И001", "time": datetime.now(), "active": False}
+    coupon: Coupon = db_session.query(Coupon).get(coupon_id)  # returns Coupon or None
+    if coupon is None:
+        return HTTPException(404, "Coupon not found")
+    if active is not None:
+        coupon.active = active 
+    if window is not None:
+        coupon.window = window
+    db_session.commit()
+    return coupon.as_dict()
