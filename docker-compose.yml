@@ -16,7 +16,7 @@ services:
       - DATABASE_URL=postgresql+psycopg2://moretech:techmore@pgdb:5432/moretech
       - YAMAPS_API=api
     volumes:
-      - ./app:/code/app/
+      - ./backend/app:/code/app
 
   pgdb:
     image: postgres
