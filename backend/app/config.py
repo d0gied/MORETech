@@ -3,8 +3,10 @@ from os import getenv
 from pydantic import PostgresDsn
 from pydantic_settings import BaseSettings
 
+
 class Settings(BaseSettings):
     database_url: PostgresDsn
+
 
 @lru_cache
 def get_settings() -> Settings:

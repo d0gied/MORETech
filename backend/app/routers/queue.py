@@ -7,9 +7,7 @@ from ..db.models.coupons import Coupon
 router = APIRouter(prefix="/queue", tags=["queue"])
 
 
-@router.get(
-    "/department/{department_id}"
-)
+@router.get("/department/{department_id}")
 async def get_queue(
     department_id: int,
     offset: int = 0,
@@ -26,11 +24,11 @@ async def get_queue(
     ).all()
 
     response = {
-        'department_id': department_id,
-        'offset': offset,
-        'limit': limit,
-        'amount': len(coupons),
-        'coupons': list(map(Coupon.as_dict, coupons))
+        "department_id": department_id,
+        "offset": offset,
+        "limit": limit,
+        "amount": len(coupons),
+        "coupons": list(map(Coupon.as_dict, coupons)),
     }
     return response
 
