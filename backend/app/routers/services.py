@@ -7,9 +7,9 @@ router = APIRouter(prefix="/services", tags=["service"])
 
 @router.put("/")
 async def put_service(
-    name: str=None,
-    client_type: str = None, 
-    service_time: str = None, 
+    name: str,
+    client_type: str, 
+    service_time: str, 
     db_session: Session = Depends(get_session),
 ):
     service = Service(

@@ -7,10 +7,10 @@ router = APIRouter(prefix="/departments", tags=["department"])
 
 @router.put("/")
 async def put_department(
+    address: str, 
+    city: str,
     name: str=None,
-    address: str = None, 
     metro: str = None, 
-    city: str = None,
     db_session: Session = Depends(get_session),
 ):
     department = department(
@@ -32,11 +32,11 @@ async def get_department(department_id: int, db_session: Session = Depends(get_s
 router.patch("/{department_id}")  # update data in coupon
 async def path_department(
     department_id: int, 
-    name : str = None,
-    address: str = None, 
-    metro: str = None,
-    city: str = None,
-    db_session: Session = Depends(get_session)
+    address: str, 
+    city: str,
+    name: str=None,
+    metro: str = None, 
+    db_session: Session = Depends(get_session),
 ):
     department: department = db_session.query(department).get(department_id)  # returns department or None
     if department is None:
