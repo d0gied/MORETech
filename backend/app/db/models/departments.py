@@ -2,7 +2,7 @@ from datetime import datetime
 
 from sqlalchemy import Column, Integer, String
 from .base import get_base
-from services import Service
+from .services import Service
 from sqlalchemy.orm import relationship
 
 Base = get_base()
