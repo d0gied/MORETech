@@ -23,7 +23,7 @@ async def put_department(
 async def get_department(
     department_id: int, db_session: Session = Depends(get_session)
 ):
-    department: Department = db_session.query(department).get(
+    department: Department = db_session.query(Department).get(
         department_id
     )  # returns department or None
     if department is None:
@@ -40,7 +40,7 @@ async def path_department(
     metro: str = None,
     db_session: Session = Depends(get_session),
 ):
-    department: Department = db_session.query(department).get(
+    department: Department = db_session.query(Department).get(
         department_id
     )  # returns department or None
     if department is None:
