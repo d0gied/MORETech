@@ -75,5 +75,6 @@ async def put_in_queue(
         coupon.active = active 
     if window is not None:
         coupon.window = window
+    db_session.add(coupon)
     db_session.commit()
     return coupon.as_dict()
