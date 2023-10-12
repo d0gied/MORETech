@@ -13,6 +13,7 @@ services:
       - frontend
     environment:
       - DATABASE_URL=postgresql+psycopg2://moretech:techmore@pgdb:5432/moretech
+      - YAMAPS_API=api
 
   pgdb:
     image: postgres
