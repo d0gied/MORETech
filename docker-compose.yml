@@ -4,7 +4,6 @@ services:
     container_name: backend
     build:
       context: ./backend
-    command: "uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
     ports:
       - "${APIPORT:-8000}:8000"
     depends_on:
@@ -15,8 +14,6 @@ services:
     environment:
       - DATABASE_URL=postgresql+psycopg2://moretech:techmore@pgdb:5432/moretech
       - YAMAPS_API=api
-    volumes:
-      - ./backend/app:/code/app
 
   pgdb:
     image: postgres
