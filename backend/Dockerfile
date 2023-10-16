@@ -10,12 +10,15 @@ ENV PYTHONFAULTHANDLER=1 \
 EXPOSE 8000
 WORKDIR /code/
 
-COPY app /code/app
-COPY poetry.lock /code/poetry.lock
-COPY pyproject.toml /code/pyproject.toml
-
 # install packages
 RUN pip install poetry
+COPY pyproject.toml /code/pyproject.toml
+COPY poetry.lock /code/poetry.lock
 RUN poetry config virtualenvs.create false \
     && poetry install --no-dev --no-interaction --no-ansi
+
+# copy source code
+COPY app /code/app
+
+
 CMD [ "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
